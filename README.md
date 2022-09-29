@@ -1,2 +1,2 @@
 Specifikáció:
-https://docs.google.com/document/d/1QCRVOeMDEBru4Qu15l59jOfCGxIN4mLPKUnLhGQHJEg
+https://docs.google.com/document/d/1AbIobHnNkA-754nUuuEpgFdv9xWHQmriI1DxzdrLkYU
