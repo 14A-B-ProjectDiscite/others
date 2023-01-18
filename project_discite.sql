@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Jan 13. 10:54
+-- Létrehozás ideje: 2023. Jan 18. 11:08
 -- Kiszolgáló verziója: 10.4.24-MariaDB
 -- PHP verzió: 8.1.6
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `project_discite`
 --
+CREATE DATABASE IF NOT EXISTS `project_discite` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `project_discite`;
 
 -- --------------------------------------------------------
 
@@ -595,8 +597,9 @@ INSERT INTO `run` (`id`, `user_id`, `class_id`, `path`, `seed`, `gold`, `score`,
 CREATE TABLE `run_artifact` (
   `run_id` int(11) NOT NULL,
   `artifact_id` int(11) NOT NULL,
-  `times` int(11) NOT NULL,
-  `seen` int(11) NOT NULL
+  `picked` int(11) NOT NULL,
+  `seen` int(11) NOT NULL,
+  `used` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -5179,7 +5182,7 @@ INSERT INTO `run_eventroom` (`run_id`, `eventroom_id`, `seen`) VALUES
 CREATE TABLE `run_weapon` (
   `run_id` int(11) NOT NULL,
   `weapon_id` int(11) NOT NULL,
-  `times` int(11) NOT NULL,
+  `picked` int(11) NOT NULL,
   `seen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -5187,7 +5190,7 @@ CREATE TABLE `run_weapon` (
 -- A tábla adatainak kiíratása `run_weapon`
 --
 
-INSERT INTO `run_weapon` (`run_id`, `weapon_id`, `times`, `seen`) VALUES
+INSERT INTO `run_weapon` (`run_id`, `weapon_id`, `picked`, `seen`) VALUES
 (1, 1, 4, 3),
 (1, 2, 4, 5),
 (1, 3, 1, 4),
@@ -8823,7 +8826,7 @@ INSERT INTO `run_weapon` (`run_id`, `weapon_id`, `times`, `seen`) VALUES
 (404, 5, 1, 2),
 (404, 5, 5, 4),
 (404, 5, 3, 4);
-INSERT INTO `run_weapon` (`run_id`, `weapon_id`, `times`, `seen`) VALUES
+INSERT INTO `run_weapon` (`run_id`, `weapon_id`, `picked`, `seen`) VALUES
 (404, 5, 1, 5),
 (405, 1, 1, 4),
 (405, 2, 4, 2),
